@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+import ListButton from "./components/ListButton";
+import TodoInput from "./components/TodoInput";
+
+const Container = styled.div`
+  min-height: 100vh;
+  max-width: 1400px;
+  width: 70%;
+  margin: 0 auto;
+`
+const Title = styled.h1`
+    text-align: center;
+    font-size: 2rem;
+    padding: 0 12px;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+        <Title>TodoInput</Title>
+        <TodoInput />
+        <Title>TodoList</Title>
+        <ListButton />
+    </Container>
   );
 }
 
