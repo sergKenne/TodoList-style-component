@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ListButton from "./components/ListButton";
 import TodoInput from "./components/TodoInput";
+import TodoList from "./components/TodoList";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -21,7 +22,7 @@ function App() {
         <TodoInput />
         <Title>TodoList</Title>
         <ListButton />
-        <h3>salut</h3>
+        <TodoList />
     </Container>
   );
 }
