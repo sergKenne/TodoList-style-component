@@ -40,8 +40,9 @@ const InputForm = styled.input`
     padding: 6px;
     font-size: 1.1rem;
     &:focus-visible {
-        outline: 1px solid rgba(#000, .5);
-        border: none;
+        outline:none;
+        box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+       
     }
    
 ` 

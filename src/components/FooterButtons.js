@@ -5,6 +5,7 @@ const ButtonGroup = styled.span`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 3rem;
 `
 
 const Button = styled.button`
@@ -16,23 +17,23 @@ const Button = styled.button`
     background-color: ${(props) => props.bg};
     border-radius: 4px;
     padding: 8px 20px;
-    width: 30%;
+    width: 40%;
     transition: all .6s;
+    cursor: pointer;
     &:hover {
-        background-color: #8edee8;
-        //color: #38484a;
+        background-color: #e48b84;
+        color: #fff;
     }
 `
 
 
-const ListButton = () => {
+const FooterButtons = () => {
     return (
         <ButtonGroup>
-            <Button bg="#0cafc3">All</Button>
-            <Button bg="#0cafc3">Done</Button>
-            <Button bg="#0cafc3">Todo</Button>
+            <Button bg="#c11f13">Delete done tasks</Button>
+            <Button bg="#c11f13">Delete all tasks</Button>
         </ButtonGroup>
     )
 }
 
-export default ListButton
+export default FooterButtons

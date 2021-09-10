@@ -4,12 +4,14 @@ import TodoItem from './TodoItem'
 
 const TodoListContainer = styled.div`
     width: 100%;
+    margin-top: 3.3rem;
 `
 
-const TodoList = () => {
+const TodoList = ({tasks}) => {
     return (
         <TodoListContainer>
-          <TodoItem/>  
+          {tasks.map(task => <TodoItem key={task.id} task={task}/>)}  
+            
         </TodoListContainer>
     )
 }
