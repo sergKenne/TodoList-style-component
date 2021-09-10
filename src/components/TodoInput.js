@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import styled from 'styled-components'
 
 const InputContainer = styled.div`
@@ -50,10 +50,16 @@ const InputForm = styled.input`
 
 
 const TodoInput = () => {
+
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, [])
     return (
         <InputContainer>
             <InputWrap>
-                <InputForm placeholder="new todo" />
+                <InputForm ref={inputRef} placeholder="new todo" />
             </InputWrap>
             <InputButton>Add new task</InputButton>
         </InputContainer>
