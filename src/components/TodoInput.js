@@ -1,5 +1,7 @@
-import React, {useRef, useEffect} from 'react'
+import React, {useState,useRef, useEffect} from 'react'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
+import { addTodo } from '../redux/actions'
 
 const InputContainer = styled.div`
     display: flex;
@@ -47,11 +49,22 @@ const InputForm = styled.input`
    
 ` 
 
-
-
 const TodoInput = () => {
 
+    const [inputVal, setInputVal] = useState("");
+
     const inputRef = useRef(null);
+    const dispatch = useDispatch()
+
+    const handleChange = (e) => {
+        setInputVal(e.target.value);
+    }
+    const pushTodo = (text) => {
+        const newTodo = {text: text, id: Math.random(), complete: false}
+        dispatch(addTodo(newTodo))
+        setInputVal("");
+        inputRef.current.focus();
+    }
 
     useEffect(() => {
         inputRef.current.focus();
@@ -59,9 +72,14 @@ const TodoInput = () => {
     return (
         <InputContainer>
             <InputWrap>
-                <InputForm ref={inputRef} placeholder="new todo" />
+                <InputForm 
+                    value={inputVal} 
+                    ref={inputRef} 
+                    placeholder="new todo" 
+                    onChange={handleChange}
+                />
             </InputWrap>
-            <InputButton>Add new task</InputButton>
+            <InputButton onClick={() => pushTodo(inputVal)}>Add new task</InputButton>
         </InputContainer>
     )
 }
